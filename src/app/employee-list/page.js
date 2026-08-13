@@ -1,4 +1,5 @@
 import DeleteButton from "@/components/DeleteButton";
+import Link from "next/link";
 
 const getEmployees = async () => {
     let data = await fetch('http://localhost:3000/employee')
@@ -16,6 +17,7 @@ const EmployeeList = async () => {
               <div key={i}>
                   <h1>{item.name}</h1>
                   <DeleteButton id={item.employeeId}/>
+                  <Link href={`employee-list/${item.employeeId}/update`}>Edit</Link>
               </div>
            ))
        }
